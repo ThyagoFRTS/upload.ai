@@ -33,6 +33,6 @@ Content-Type: application/json
 {
   "videoId": "d23ea980-ef0b-46f4-ae12-08b95e580588",
   "temperature": 0.5,
-  "template": "responda essa frase '''{transcription}'''"
+  "prompt": "responda essa frase '''{transcription}'''"
 }
 
