@@ -12,6 +12,10 @@ import { api } from "@/lib/axios";
 
 type Status = "waiting" | "converting" | "uploading" | "generating" | "success";
 
+interface Props {
+  onVideoUploaded: (videoId: string) => void;
+}
+
 const statusMessages = {
   converting: "Convertendo...",
   generating: "Transcrevendo...",
@@ -19,7 +23,7 @@ const statusMessages = {
   success: "Sucesso!",
 };
 
-export const VideoInputForm: React.FC = () => {
+export const VideoInputForm: React.FC<Props> = ({ onVideoUploaded }) => {
   const [videoFile, setVideoFile] = useState<File | undefined>(undefined);
   const promptInputRef = useRef<HTMLTextAreaElement>(null);
   const [status, setStatus] = useState<Status>("waiting");
@@ -31,6 +35,7 @@ export const VideoInputForm: React.FC = () => {
     }
     const selectedFile = files[0];
     setVideoFile(selectedFile);
+    setStatus("waiting");
   };
 
   const previewURL = useMemo(() => {
@@ -100,6 +105,7 @@ export const VideoInputForm: React.FC = () => {
     });
 
     setStatus("success");
+    onVideoUploaded(videoId);
   };
 
   return (

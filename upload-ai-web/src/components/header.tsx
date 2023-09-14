@@ -14,10 +14,12 @@ export const Header: React.FC = () => {
           Desenvolvido com 💛 no NLW by ThyagoFRTS
         </span>
         <Separator orientation="vertical" className="h-6" />
-        <Button variant="outline">
-          <Github className="w-4 h-4 mr-2" />
-          Gitihub
-        </Button>
+        <a href="https://github.com/ThyagoFRTS/upload.ai">
+          <Button variant="outline">
+            <Github className="w-4 h-4 mr-2" />
+            Gitihub
+          </Button>
+        </a>
       </div>
     </header>
   );
