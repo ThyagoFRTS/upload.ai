@@ -16,7 +16,7 @@ After, you will need to apply migrations
 npx prisma migrate dev
 ```
 
-At least, start server with
+Start server with
 
 ```
 npm run dev
